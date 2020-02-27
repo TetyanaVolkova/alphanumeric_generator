@@ -1,0 +1,38 @@
+
+h2 {
+  text-align: center;
+}
+
+span {
+  font-size: 14px;
+}
+
+.mat-success {
+  width: 200px;
+  background-color: green;
+  color: #fff;
+}
+
+#scroll {
+  padding: 2%;
+  height: 100%;
+  overflow: auto;
+}
+
+#scroll div {
+  width: 35vw;
+  text-align: center;
+}
+
+.mat-card {
+  width: 100%;
+}
+
+#scroll_wrap {
+  height: 88vh;
+}
+
+mat-spinner {
+  height: 100%;
+  margin: auto;
+}

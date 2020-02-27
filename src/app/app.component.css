@@ -1,0 +1,8 @@
+
+main {
+  overflow: hidden;
+}
+
+::ng-deep body {
+  overflow: hidden;
+}

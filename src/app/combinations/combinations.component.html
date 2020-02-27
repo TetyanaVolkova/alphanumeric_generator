@@ -1,0 +1,29 @@
+<div *ngIf="combinations.length > 0" id="scroll_wrap" fxLayout="column">
+  <h2>Total number of generated combinations for Phone Number {{validPhone}} is {{totalCombinations}}.</h2>
+  <mat-paginator
+    [pageIndex]="pageIndex"
+    [length]="totalCombinations"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+  <mat-toolbar fxLayout fxLayoutAlign="center">
+    <button
+      mat-raised-button
+      [color]="'success'"
+      (click)="navigateHome()">
+      Back Home
+    </button>
+  </mat-toolbar>
+  <mat-toolbar
+    fxLayoutGap="20px"
+    id="scroll"
+    fxLayout="column">
+    <div
+      fxLayoutAlign="center"
+      *ngFor="let combination of combinations; let i = index">
+        <mat-card><span>{{combination.id}}.</span> {{combination.value}}</mat-card>
+    </div>
+  </mat-toolbar>
+</div>
+<mat-spinner *ngIf="combinations.length === 0"></mat-spinner>
