@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { APP_BASE_HREF } from '@angular/common';
 
 import { MainComponent } from './main.component';
 import { PhoneInputComponent } from '../phone-input/phone-input.component';
@@ -28,7 +27,7 @@ describe('MainComponent', () => {
                 MatFormFieldModule,
                 MatButtonModule,
                 MatCardModule],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+      providers: []
     })
     .compileComponents();
   }));

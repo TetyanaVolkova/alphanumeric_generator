@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,7 +14,7 @@ describe('AppComponent', () => {
         HeaderComponent
       ],
       imports: [RouterModule.forRoot([]), HttpClientTestingModule, MatToolbarModule],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+      providers: []
     }).compileComponents();
   }));
   it('should create the app', async(() => {

@@ -7,17 +7,17 @@ import { Router } from '@angular/router';
 
 export class AppService {
   public combinations = new Subject();
-  // public combinationNum = new Subject();
 
   constructor(private http: HttpClient,
-              private router: Router) {}
+              private router: Router) {
+                this.combinations.subscribe( val => {
+                  console.log(val);
+                });
+              }
 
   getCombUpdateListener() {
     return this.combinations.asObservable();
   }
-  // getCombNumUpdateListener() {
-  //   return this.combinationNum.asObservable();
-  // }
   submit(phone: any, limit: string, pageIndex: string) {
     const data = {
       limit: limit || '5',
@@ -33,7 +33,5 @@ export class AppService {
       console.log(response[0]);
       this.combinations.next(response);
     });
-    return this.http
-    .get('http://localhost:3000/phone', config);
   }
 }

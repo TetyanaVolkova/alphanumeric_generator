@@ -10,17 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./phone-input.component.css']
 })
 export class PhoneInputComponent implements OnInit {
+  validPhone = '';
   phoneForm = new FormGroup({
     phone: new FormControl()
   });
   constructor(private appService: AppService,
-              private router: Router) {}
+              public router: Router) {}
 
   ngOnInit() {}
 
   submit() {
-    const validPhone = this.phoneForm.value.phone;
-    localStorage.setItem('validPhone', validPhone);
+    this.validPhone = this.phoneForm.value.phone;
+    localStorage.setItem('validPhone', this.validPhone);
     this.router.navigate(['/combinations']);
     this.phoneForm.reset();
   }
