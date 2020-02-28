@@ -28,10 +28,12 @@ export class AppService {
      params: data
      };
     this.http
-    .post('http://localhost:3000/phone', config)
+    .get('http://localhost:3000/phone', config)
     .subscribe(response => {
       console.log(response[0]);
       this.combinations.next(response);
     });
+    return this.http
+    .get('http://localhost:3000/phone', config);
   }
 }

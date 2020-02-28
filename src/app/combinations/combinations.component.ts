@@ -13,7 +13,7 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 })
 export class CombinationsComponent implements OnInit, OnDestroy {
   private subscribtion: Subscription;
-  private combinations = [];
+  public combinations = [];
   public totalCombinations: string;
   public pageIndex = '0';
   public pageSize = '5';
