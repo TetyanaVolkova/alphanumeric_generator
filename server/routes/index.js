@@ -3,8 +3,9 @@ const router = express.Router();
 
 // Routes:
 
-router.post("/phone", (req, res) => {
-  const phone_number = req.body.params.validPhone;
+router.get("/phone", (req, res) => {
+  console.log(req.query);
+  const phone_number = req.query.validPhone;
   num_mapping = {
     1: ['1'],
     2: ['2', 'a', 'b', 'c'],
@@ -50,8 +51,8 @@ let finalArr = allPossibleCases(tempArray);
 finalArr = finalArr.map((str, index) => ({ value: str, id: index + 1 }));
 console.log(finalArr);
 const totalCombinations = finalArr.length;
-const offset = req.body.params.pageIndex*req.body.params.limit;
-const concatFinalArr = finalArr.splice(offset, req.body.params.limit)
+const offset = req.query.pageIndex*req.query.limit;
+const concatFinalArr = finalArr.splice(offset, req.query.limit)
   res.status(200).json([concatFinalArr, totalCombinations]);
 });
 

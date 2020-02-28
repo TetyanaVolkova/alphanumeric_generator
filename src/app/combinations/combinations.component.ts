@@ -13,7 +13,7 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 })
 export class CombinationsComponent implements OnInit, OnDestroy {
   private subscribtion: Subscription;
-  private combinations = [];
+  public combinations = [];
   public totalCombinations: string;
   public pageIndex = '0';
   public pageSize = '5';
@@ -25,6 +25,7 @@ export class CombinationsComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit() {
+    this.appService.getCombUpdateListener().subscribe( val => { console.log(val); });
     this.validPhone = localStorage.getItem('validPhone');
     this.appService.submit(this.validPhone, this.limit, this.pageIndex );
     this.subscribtion = this.appService.getCombUpdateListener()
@@ -40,6 +41,8 @@ export class CombinationsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']);
   }
   onPageChange(pageData: PageEvent) {
+    this.validPhone = localStorage.getItem('validPhone');
+    console.log(this.validPhone);
     this.combinations = [];
     this.pageSize = pageData.pageSize.toString();
     this.pageIndex = pageData.pageIndex.toString();
